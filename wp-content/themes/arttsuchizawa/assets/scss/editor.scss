@@ -1,0 +1,39 @@
+@charset "utf-8";
+@import "init";
+
+.php-error {
+	#adminmenuwrap {
+		margin-top: 0;
+	}
+}
+
+.acf-fields {
+	.acf-field {
+		&[data-key="field_69fd962b8aa30"],
+		&[data-key="field_69f074c24636c"] {
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			.acf-label {
+				margin-bottom: 0;
+				label {
+					margin-bottom: 0
+				}
+			}
+		}
+		&.mb-0 {
+			.acf-label {
+				margin-bottom: 0;
+				label {
+					margin-bottom: 0;
+				}
+			}
+		}
+		&.label-bold {
+			.acf-label {
+				label {
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}

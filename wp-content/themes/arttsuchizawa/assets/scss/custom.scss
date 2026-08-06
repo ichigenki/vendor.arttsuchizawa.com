@@ -1,0 +1,282 @@
+@charset "utf-8";
+@import "init";
+@import "common";
+
+//* ************************ *//
+//* HEADER                   *//
+//* CONTENT                  *//
+//*   PageHeader             *//
+//*   Content                *//
+//* FOOTER                   *//
+//* RESPONSIVE               *//
+//* HOME                     *//
+//* PARKING                  *//
+//* RECEIPT                  *//
+//* ************************ *//
+
+//* ************************ *//
+//* HEADER                   *//
+//* ************************ *//
+
+body:not(.home) {
+    .custom-header-media::before {
+        background: rgba(black, 0.25);
+        //background: linear-gradient(to bottom, rgba(black, 0) 20%, rgba(black, 0.5) 21%, rgba(black, 0.5) 79%, rgba(black, 0) 80%);
+    }
+}
+img,
+table {
+    max-width: 100%;
+}
+.site-branding {
+    padding: 0.8em 0;
+    .site-title {
+        font-size: 1.2rem;
+    }
+}
+.navigation-top {
+    border-color: $boderC;
+    box-sizing: border-box;
+}
+#printing-only {
+    display: none;
+}
+
+@media screen and (min-width: 30em) {
+    .site-branding {
+        padding: 0.8em 0;
+        .site-title {
+            font-size: 1.4rem;
+        }
+    }
+}
+@media screen and (min-width: 48em) {
+    .site-branding {
+        padding: 1.25em 0;
+        .site-title {
+            font-size: 1.5rem;
+        }
+    }
+    .main-navigation {
+        a {
+            padding: 0.25em 1.25em;
+        }
+    }
+}
+//* ************************ *//
+//* CONTENT                  *//
+//* ************************ *//
+
+body.page.page-one-column {
+    #content.site-content {
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+    }
+    #primary.content-area {
+        max-width: none;
+    }
+}
+@media screen and (min-width: 48em) {
+    .page.page-one-column .entry-header {
+        margin-bottom: 1em;
+    }
+    .entry-title {
+        body.page:not(.twentyseventeen-front-page) & {
+            font-size: 1.5em;
+        }
+    }
+    h2 {
+        font-size: 2.2rem;
+    }
+}
+@media screen and (min-width: 30em) {
+}
+
+//* ************************ *//
+//* FOOTER                   *//
+//* ************************ *//
+footer.site-footer {
+    border-top-color: $boderC;
+    .wrap {
+        padding-top: 0;
+        padding-bottom: 0;
+        a {
+            color: inherit;
+            box-shadow: none;
+            &:hover {
+                opacity: 0.75;
+            }
+        }
+    }
+    .site-info {
+        //text-align: right;
+        float: none;
+        margin: 0;
+        padding: 1rem 0 2rem;
+        body.home & {
+            text-align: right;
+            float: right;
+            margin-bottom: -10px;
+        }
+    }
+}
+
+//* ************************ *//
+//* RESPONSIVE               *//
+//* ************************ *//
+
+//* ************************ *//
+//* HOME                     *//
+//* ************************ *//
+
+body.home.has-header-image {
+    .custom-header-media {
+        img {
+            padding: 0;
+        }
+    }
+}
+body.home {
+    .navigation-top {
+        display: none;
+    }
+    #content.site-content {
+        display: none;
+    }
+    .site-footer {
+        display: block;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        color: white;
+        border: none;
+    }
+}
+@media screen and (min-width: 48em) {
+    body.home {
+        .site-footer {
+            display: block;
+        }
+    }
+}
+
+//* ************************ *//
+//* PARKING                  *//
+//* ************************ *//
+
+body.parking {
+    table.parking-table {
+        tbody tr {
+            border: none;
+            &:nth-child(2n) {
+                background-color: #f8f8f8;
+            }
+        }
+        th,
+        td {
+            font-size: 14px;
+            line-height: 1.5;
+            border: 1px solid #999;
+            border-collapse: collapse;
+            padding: 0.5rem 0.5rem;
+            &.parking {
+                white-space: nowrap;
+            }
+        }
+        th {
+            position: relative;
+        }
+        td {
+            &.num {
+                font-weight: bold;
+            }
+            .number {
+                font-weight: bold;
+            }
+        }
+        thead {
+            th {
+                font-size: 12px;
+                background-color: #ddd;
+                padding-top: 0.25rem;
+                padding-bottom: 0.25rem;
+            }
+        }
+    }
+}
+
+//* ************************ *//
+//* RECEIPT                  *//
+//* ************************ *//
+
+table.receipt-frame-table {
+    width: 100%;
+    td {
+        font-family: serif;
+        font-size: 10pt;
+        line-height: 1.25;
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        padding: 20px 20px 15px;
+    }
+    .wrapper {
+        position: relative;
+    }
+    .header {
+        span {
+            display: block;
+        }
+        .title {
+            font-size: 18pt;
+            letter-spacing: 0.5em !important;
+            text-align: center !important;
+        }
+        .date {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+    .recipient {
+        font-size: 12pt;
+        margin: 10px 0 10px;
+        .name {
+            font-size: 14pt;
+            padding-right: 0.25em;
+        }
+    }
+    .price {
+        font-size: 14pt;
+        text-align: center;
+        background-color: #e0ebf8;
+        padding: 8px;
+        .prefix {
+            font-size: 16pt;
+            padding: 0 0.25em;
+        }
+        .amount,
+        .sufix {
+            font-size: 22pt;
+        }
+        .sufix {
+            padding-left: 0.25em;
+        }
+    }
+    .remarks {
+        font-size: 9pt;
+        margin: 6px 0 10px;
+    }
+    .issuer {
+        float: right;
+        span {
+            display: block;
+        }
+        .name {
+            //font-size: 10pt;
+            position: relative;
+        }
+        .address {
+            font-size: 9pt;
+        }
+    }
+}

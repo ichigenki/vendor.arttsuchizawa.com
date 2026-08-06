@@ -1,0 +1,23 @@
+.php-error #adminmenuwrap {
+  margin-top: 0;
+}
+
+.acf-fields .acf-field[data-key=field_69fd962b8aa30], .acf-fields .acf-field[data-key=field_69f074c24636c] {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.acf-fields .acf-field[data-key=field_69fd962b8aa30] .acf-label, .acf-fields .acf-field[data-key=field_69f074c24636c] .acf-label {
+  margin-bottom: 0;
+}
+.acf-fields .acf-field[data-key=field_69fd962b8aa30] .acf-label label, .acf-fields .acf-field[data-key=field_69f074c24636c] .acf-label label {
+  margin-bottom: 0;
+}
+.acf-fields .acf-field.mb-0 .acf-label {
+  margin-bottom: 0;
+}
+.acf-fields .acf-field.mb-0 .acf-label label {
+  margin-bottom: 0;
+}
+.acf-fields .acf-field.label-bold .acf-label label {
+  font-weight: bold;
+}/*# sourceMappingURL=editor.css.map */

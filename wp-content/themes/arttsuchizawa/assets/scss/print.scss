@@ -1,0 +1,272 @@
+@charset "utf-8";
+
+//* ************************ *//
+//* RECEIPT                  *//
+//* SELECTION                *//
+//* SHOPLIST / FLYER         *//
+//* ************************ *//
+
+html body {
+	font-size: 10pt;
+}
+#page.site {
+	padding: 5mm;
+	p, a, h1, h2, h3, h4, h5, h6, li, th, td {
+		font-size: 10pt;
+		font-weight: normal;
+	}
+	.screen-only {
+		display: none;
+	}
+	.page-break {
+		page-break-after: always;
+	}
+	#printing-only {
+		display: block;
+	}
+	header#masthead,
+	footer#colophon {
+		display: none;
+	}
+	#content.site-content {
+		margin: 0 !important;
+		padding: 0 !important;
+		.wrap,
+		#primary {
+			width: 100%;
+			max-width: none !important;
+			margin: 0 !important;
+			padding: 0 !important;
+		}
+		header.entry-header {
+			display: none;
+			padding-bottom: 0.5em;
+			.entry-title {
+			}
+		}
+/*
+//プリント用コードが完成したらコメントアウトを外す
+		article {
+			display: none;
+		}
+*/
+	}
+	.entry-content {
+		h2 {
+			display: none;
+		}
+	}
+	table {
+		margin: 0;
+	}
+}
+
+
+
+//* ************************ *//
+//* RECEIPT                  *//
+//* ************************ *//
+
+body.receipt #page.site {
+}
+
+
+
+//* ************************ *//
+//* SELECTION                *//
+//* ************************ *//
+
+body.selection #page.site {
+	img {
+		width: auto;
+		max-width: 100%;
+		height: auto;
+		max-height: 100%;
+	}
+	td.w-10p {
+		width: 10% !important;
+	}
+	td.w-15p {
+		width: 15% !important;
+	}
+	td.w-25p {
+		width: 25% !important;
+	}
+	td.w-33p {
+		width: 33.33% !important;
+	}
+	td.w-50p {
+		width: 50% !important;
+	}
+	td.va-top {
+		vertical-align: top !important;
+	}
+	table.vendor-table .title {
+		font-size: 8pt !important;
+		opacity: 0.9;
+	}
+	table.vendor-table .value {
+		font-size: 10pt !important;
+	}
+	.normal {
+		font-weight: normal !important;
+	}
+	.bold {
+		font-weight: bold !important;
+	}
+	.fs-09pt {
+		font-size: 9pt !important;
+	}
+	.fs-12pt {
+		font-size: 12pt !important;
+	}
+	.fs-14pt {
+		font-size: 14pt !important;
+	}
+	.bd-t1px {
+		border-top-width: 1px !important;
+	}
+	.bd-r1px {
+		border-right-width: 1px !important;
+	}
+	.bd-b1px {
+		border-bottom-width: 1px !important;
+	}
+	.bd-l1px {
+		border-left-width: 1px !important;
+	}
+	.pd-0 {
+		padding: 0 !important;
+	}
+	// セクション
+	section.vendor-section {
+		margin: 0 !important;
+		padding: 0 !important;
+		.vendor-header {
+			//height: 15mm;
+			position: relative;
+			margin: 0 0 2mm;
+			h1 {
+				position: relative;
+				line-height: 1;
+				text-align: center;
+				margin: 0;
+				padding: 0;
+				.fare-title {
+					font-size: 18pt;
+					font-weight: bold;
+				}
+				.normal {
+					font-size: 14pt;
+				}
+			}
+		}
+		#vendor-id {
+			position: absolute;
+			bottom: 2pt;
+			right: 68pt;
+			line-height: 1;
+			border: 1px solid #333;
+			margin: 0;
+			padding: 10pt 8pt;
+			.title {
+				font-size: 8pt;
+			}
+			.value {
+				font-size: 14pt;
+				font-weight: bold;
+			}
+		}
+	}
+	// テーブル
+	table {
+		&,
+		tr,
+		th,
+		td {
+			font-size: 10pt;
+			line-height: 1.2;
+			border: 0px solid black;
+			border-collapse: collapse;
+		}
+	}
+	table.vendor-table,
+	table.child-table {
+		width: 100%;
+		max-width: 100%;
+		max-height: 100%;
+		border-width: 0;
+		margin: 0;
+		padding: 0;
+		th {
+			width: 10pt !important;
+			font-size: 9pt !important;
+			line-height: 1.1;
+			box-sizing: content-box;
+		}
+	}
+	table.vendor-table {
+		th,
+		td {
+			width: auto;
+			font-weight: normal;
+			line-height: 1.25;
+			text-align: left;
+			vertical-align: middle;
+			border-width: 1px;
+			padding: 1.5mm 1.5mm;
+		}
+		> tbody > tr > td {
+			padding: 0;
+		}
+		td {
+			&.cancel,
+			&.vehicles,
+			&.daybefore,
+			&.tentsize,
+			&.kitchencar,
+			&.times {
+				background-color: #f8f8f8;
+			}
+			.value.marker-on {
+				color: #a00;
+				font-weight: bold;
+			}
+		}
+		span {
+			display: inline-block;
+		}
+	}
+	table.child-table {
+		tr:first-child {
+			th,
+			td {
+				border-top-width: 0;
+			}
+		}
+		th,
+		td {
+			width: auto;;
+			border-width: 1px 0 0 1px;
+			&:first-child {
+				border-left-width: 0;
+			}
+		}
+	}
+}
+
+
+
+//* ************************ *//
+//* SHOPLIST / FLYER         *//
+//* ************************ *//
+
+body.flyer #page.site,
+body.shoplist #page.site {
+	#content.site-content {
+		header.entry-header {
+			display: block;
+			padding-bottom: 0.5em;
+		}
+	}
+}

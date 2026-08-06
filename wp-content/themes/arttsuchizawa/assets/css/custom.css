@@ -1,0 +1,351 @@
+@charset "UTF-8";
+html,
+body {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+}
+
+a {
+  transition: all 0.3s ease-in-out;
+}
+
+ul,
+ol {
+  padding-left: 2em;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #aaa;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
+}
+
+body.password_required form.post-password-form input[type=password] {
+  width: 300px;
+  max-width: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.normal {
+  font-weight: normal;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.error,
+.warning {
+  color: #c30;
+}
+
+.warning-box,
+.executed-box {
+  background-color: #f3f3f3;
+  border: 3px double #999;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+}
+.warning-box p:last-child,
+.executed-box p:last-child {
+  margin-bottom: 0;
+}
+
+.warning-box {
+  background-color: #fff3f9;
+  border-color: #c30;
+}
+
+.executed-box {
+  background-color: #f3fef0;
+  border-color: #396;
+  margin: 0 0 1.5rem;
+}
+
+.pt-0 {
+  padding-top: 0 !important;
+}
+
+.pr-0 {
+  padding-right: 0 !important;
+}
+
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.pl-0 {
+  padding-left: 0 !important;
+}
+
+.pt-05em {
+  padding-top: 0.5em !important;
+}
+
+.pb-05em {
+  padding-bottom: 0.5em !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.mr-0 {
+  margin-right: 0 !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.ml-0 {
+  margin-left: 0 !important;
+}
+
+.mt-05em {
+  margin-top: 0.5em !important;
+}
+
+.mb-05em {
+  margin-bottom: 0.5em !important;
+}
+
+div.wpforms-container .wpforms-field-description strong {
+  color: #555;
+}
+div.wpforms-container .wpforms-field-description + .wpforms-field-limit-text {
+  margin-top: 0.25em;
+}
+div.wpforms-container .wpforms-field-limit-text::before {
+  content: "※";
+}
+
+div.wpforms-container-full .wpforms-field[data-field-id="90"] {
+  padding-top: 0;
+}
+
+body:not(.home) .custom-header-media::before {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+img,
+table {
+  max-width: 100%;
+}
+
+.site-branding {
+  padding: 0.8em 0;
+}
+.site-branding .site-title {
+  font-size: 1.2rem;
+}
+
+.navigation-top {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+#printing-only {
+  display: none;
+}
+
+@media screen and (min-width: 30em) {
+  .site-branding {
+    padding: 0.8em 0;
+  }
+  .site-branding .site-title {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (min-width: 48em) {
+  .site-branding {
+    padding: 1.25em 0;
+  }
+  .site-branding .site-title {
+    font-size: 1.5rem;
+  }
+  .main-navigation a {
+    padding: 0.25em 1.25em;
+  }
+}
+body.page.page-one-column #content.site-content {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+body.page.page-one-column #primary.content-area {
+  max-width: none;
+}
+
+@media screen and (min-width: 48em) {
+  .page.page-one-column .entry-header {
+    margin-bottom: 1em;
+  }
+  body.page:not(.twentyseventeen-front-page) .entry-title {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 2.2rem;
+  }
+}
+footer.site-footer {
+  border-top-color: rgba(0, 0, 0, 0.15);
+}
+footer.site-footer .wrap {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+footer.site-footer .wrap a {
+  color: inherit;
+  box-shadow: none;
+}
+footer.site-footer .wrap a:hover {
+  opacity: 0.75;
+}
+footer.site-footer .site-info {
+  float: none;
+  margin: 0;
+  padding: 1rem 0 2rem;
+}
+body.home footer.site-footer .site-info {
+  text-align: right;
+  float: right;
+  margin-bottom: -10px;
+}
+
+body.home.has-header-image .custom-header-media img {
+  padding: 0;
+}
+
+body.home .navigation-top {
+  display: none;
+}
+body.home #content.site-content {
+  display: none;
+}
+body.home .site-footer {
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  color: white;
+  border: none;
+}
+
+@media screen and (min-width: 48em) {
+  body.home .site-footer {
+    display: block;
+  }
+}
+body.parking table.parking-table tbody tr {
+  border: none;
+}
+body.parking table.parking-table tbody tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+body.parking table.parking-table th,
+body.parking table.parking-table td {
+  font-size: 14px;
+  line-height: 1.5;
+  border: 1px solid #999;
+  border-collapse: collapse;
+  padding: 0.5rem 0.5rem;
+}
+body.parking table.parking-table th.parking,
+body.parking table.parking-table td.parking {
+  white-space: nowrap;
+}
+body.parking table.parking-table th {
+  position: relative;
+}
+body.parking table.parking-table td.num {
+  font-weight: bold;
+}
+body.parking table.parking-table td .number {
+  font-weight: bold;
+}
+body.parking table.parking-table thead th {
+  font-size: 12px;
+  background-color: #ddd;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+table.receipt-frame-table {
+  width: 100%;
+}
+table.receipt-frame-table td {
+  font-family: serif;
+  font-size: 10pt;
+  line-height: 1.25;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  padding: 20px 20px 15px;
+}
+table.receipt-frame-table .wrapper {
+  position: relative;
+}
+table.receipt-frame-table .header span {
+  display: block;
+}
+table.receipt-frame-table .header .title {
+  font-size: 18pt;
+  letter-spacing: 0.5em !important;
+  text-align: center !important;
+}
+table.receipt-frame-table .header .date {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+table.receipt-frame-table .recipient {
+  font-size: 12pt;
+  margin: 10px 0 10px;
+}
+table.receipt-frame-table .recipient .name {
+  font-size: 14pt;
+  padding-right: 0.25em;
+}
+table.receipt-frame-table .price {
+  font-size: 14pt;
+  text-align: center;
+  background-color: #e0ebf8;
+  padding: 8px;
+}
+table.receipt-frame-table .price .prefix {
+  font-size: 16pt;
+  padding: 0 0.25em;
+}
+table.receipt-frame-table .price .amount,
+table.receipt-frame-table .price .sufix {
+  font-size: 22pt;
+}
+table.receipt-frame-table .price .sufix {
+  padding-left: 0.25em;
+}
+table.receipt-frame-table .remarks {
+  font-size: 9pt;
+  margin: 6px 0 10px;
+}
+table.receipt-frame-table .issuer {
+  float: right;
+}
+table.receipt-frame-table .issuer span {
+  display: block;
+}
+table.receipt-frame-table .issuer .name {
+  position: relative;
+}
+table.receipt-frame-table .issuer .address {
+  font-size: 9pt;
+}/*# sourceMappingURL=custom.css.map */

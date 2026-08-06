@@ -1,0 +1,130 @@
+@charset "utf-8";
+@import "init";
+
+//* ************************ *//
+//* WPForms                  *//
+//* ************************ *//
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+}
+a {
+	transition: $transition;
+}
+ul,
+ol {
+	padding-left: 2em;
+}
+input,
+textarea {
+	&::placeholder {
+		color: #aaa;
+	}
+}
+body.password_required {
+	form.post-password-form {
+		input[type="password"] {
+			width: 300px;
+			max-width: 100%;
+		}
+	}
+}
+
+.hidden {
+	display: none !important;
+}
+.inline-block {
+	display: inline-block;
+}
+.normal {
+	font-weight: normal;
+}
+.bold {
+	font-weight: bold;
+}
+.error,
+.warning {
+	color: #c30;
+}
+.warning-box,
+.executed-box {
+	background-color: #f3f3f3;
+	border: 3px double #999;
+	border-radius: 12px;
+	padding: 1rem 1.5rem;
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+.warning-box {
+	background-color: #fff3f9;
+	border-color: #c30;
+}
+.executed-box {
+	background-color: #f3fef0;
+	border-color: #396;
+	margin: 0 0 1.5rem;
+}
+.pt-0 {
+	padding-top: 0 !important;
+}
+.pr-0 {
+	padding-right: 0 !important;
+}
+.pb-0 {
+	padding-bottom: 0 !important;
+}
+.pl-0 {
+	padding-left: 0 !important;
+}
+.pt-05em {
+	padding-top: 0.5em !important;
+}
+.pb-05em {
+	padding-bottom: 0.5em !important;
+}
+.mt-0 {
+	margin-top: 0 !important;
+}
+.mr-0 {
+	margin-right: 0 !important;
+}
+.mb-0 {
+	margin-bottom: 0 !important;
+}
+.ml-0 {
+	margin-left: 0 !important;
+}
+.mt-05em {
+	margin-top: 0.5em !important;
+}
+.mb-05em {
+	margin-bottom: 0.5em !important;
+}
+
+//* WPForms                  *//
+//* ************************ *//
+div.wpforms-container {
+	.wpforms-field-description {
+		strong {
+			color: #555;
+		}
+		& + .wpforms-field-limit-text {
+			margin-top: 0.25em;
+		}
+	}
+	.wpforms-field-limit-text {
+		//font-size: 12px;
+		&::before {
+			content: "※";
+		}
+	}
+}
+div.wpforms-container-full {
+	.wpforms-field[data-field-id="90"] {
+		padding-top: 0;
+	}
+}

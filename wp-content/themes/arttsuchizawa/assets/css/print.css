@@ -1,0 +1,221 @@
+@charset "UTF-8";
+html body {
+  font-size: 10pt;
+}
+
+#page.site {
+  padding: 5mm;
+}
+#page.site p, #page.site a, #page.site h1, #page.site h2, #page.site h3, #page.site h4, #page.site h5, #page.site h6, #page.site li, #page.site th, #page.site td {
+  font-size: 10pt;
+  font-weight: normal;
+}
+#page.site .screen-only {
+  display: none;
+}
+#page.site .page-break {
+  page-break-after: always;
+}
+#page.site #printing-only {
+  display: block;
+}
+#page.site header#masthead,
+#page.site footer#colophon {
+  display: none;
+}
+#page.site #content.site-content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+#page.site #content.site-content .wrap,
+#page.site #content.site-content #primary {
+  width: 100%;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+#page.site #content.site-content header.entry-header {
+  display: none;
+  padding-bottom: 0.5em;
+}
+#page.site #content.site-content {
+  /*
+  //プリント用コードが完成したらコメントアウトを外す
+  		article {
+  			display: none;
+  		}
+  */
+}
+#page.site .entry-content h2 {
+  display: none;
+}
+#page.site table {
+  margin: 0;
+}
+
+body.selection #page.site img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+body.selection #page.site td.w-10p {
+  width: 10% !important;
+}
+body.selection #page.site td.w-15p {
+  width: 15% !important;
+}
+body.selection #page.site td.w-25p {
+  width: 25% !important;
+}
+body.selection #page.site td.w-33p {
+  width: 33.33% !important;
+}
+body.selection #page.site td.w-50p {
+  width: 50% !important;
+}
+body.selection #page.site td.va-top {
+  vertical-align: top !important;
+}
+body.selection #page.site table.vendor-table .title {
+  font-size: 8pt !important;
+  opacity: 0.9;
+}
+body.selection #page.site table.vendor-table .value {
+  font-size: 10pt !important;
+}
+body.selection #page.site .normal {
+  font-weight: normal !important;
+}
+body.selection #page.site .bold {
+  font-weight: bold !important;
+}
+body.selection #page.site .fs-09pt {
+  font-size: 9pt !important;
+}
+body.selection #page.site .fs-12pt {
+  font-size: 12pt !important;
+}
+body.selection #page.site .fs-14pt {
+  font-size: 14pt !important;
+}
+body.selection #page.site .bd-t1px {
+  border-top-width: 1px !important;
+}
+body.selection #page.site .bd-r1px {
+  border-right-width: 1px !important;
+}
+body.selection #page.site .bd-b1px {
+  border-bottom-width: 1px !important;
+}
+body.selection #page.site .bd-l1px {
+  border-left-width: 1px !important;
+}
+body.selection #page.site .pd-0 {
+  padding: 0 !important;
+}
+body.selection #page.site section.vendor-section {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body.selection #page.site section.vendor-section .vendor-header {
+  position: relative;
+  margin: 0 0 2mm;
+}
+body.selection #page.site section.vendor-section .vendor-header h1 {
+  position: relative;
+  line-height: 1;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+body.selection #page.site section.vendor-section .vendor-header h1 .fare-title {
+  font-size: 18pt;
+  font-weight: bold;
+}
+body.selection #page.site section.vendor-section .vendor-header h1 .normal {
+  font-size: 14pt;
+}
+body.selection #page.site section.vendor-section #vendor-id {
+  position: absolute;
+  bottom: 2pt;
+  right: 68pt;
+  line-height: 1;
+  border: 1px solid #333;
+  margin: 0;
+  padding: 10pt 8pt;
+}
+body.selection #page.site section.vendor-section #vendor-id .title {
+  font-size: 8pt;
+}
+body.selection #page.site section.vendor-section #vendor-id .value {
+  font-size: 14pt;
+  font-weight: bold;
+}
+body.selection #page.site table,
+body.selection #page.site table tr,
+body.selection #page.site table th,
+body.selection #page.site table td {
+  font-size: 10pt;
+  line-height: 1.2;
+  border: 0px solid black;
+  border-collapse: collapse;
+}
+body.selection #page.site table.vendor-table,
+body.selection #page.site table.child-table {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  border-width: 0;
+  margin: 0;
+  padding: 0;
+}
+body.selection #page.site table.vendor-table th,
+body.selection #page.site table.child-table th {
+  width: 10pt !important;
+  font-size: 9pt !important;
+  line-height: 1.1;
+  box-sizing: content-box;
+}
+body.selection #page.site table.vendor-table th,
+body.selection #page.site table.vendor-table td {
+  width: auto;
+  font-weight: normal;
+  line-height: 1.25;
+  text-align: left;
+  vertical-align: middle;
+  border-width: 1px;
+  padding: 1.5mm 1.5mm;
+}
+body.selection #page.site table.vendor-table > tbody > tr > td {
+  padding: 0;
+}
+body.selection #page.site table.vendor-table td.cancel, body.selection #page.site table.vendor-table td.vehicles, body.selection #page.site table.vendor-table td.daybefore, body.selection #page.site table.vendor-table td.tentsize, body.selection #page.site table.vendor-table td.kitchencar, body.selection #page.site table.vendor-table td.times {
+  background-color: #f8f8f8;
+}
+body.selection #page.site table.vendor-table td .value.marker-on {
+  color: #a00;
+  font-weight: bold;
+}
+body.selection #page.site table.vendor-table span {
+  display: inline-block;
+}
+body.selection #page.site table.child-table tr:first-child th,
+body.selection #page.site table.child-table tr:first-child td {
+  border-top-width: 0;
+}
+body.selection #page.site table.child-table th,
+body.selection #page.site table.child-table td {
+  width: auto;
+  border-width: 1px 0 0 1px;
+}
+body.selection #page.site table.child-table th:first-child,
+body.selection #page.site table.child-table td:first-child {
+  border-left-width: 0;
+}
+
+body.flyer #page.site #content.site-content header.entry-header,
+body.shoplist #page.site #content.site-content header.entry-header {
+  display: block;
+  padding-bottom: 0.5em;
+}/*# sourceMappingURL=print.css.map */
