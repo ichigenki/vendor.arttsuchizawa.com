@@ -123,7 +123,7 @@ function tacf_hange_password_protected_page($output=null, $post=null) {
 /* 【管理画面】               */
 /* ************************ */
 
-// 【管理画面】出店者一覧に項目を追加・並び替え
+// 【管理画面】出店者一覧に項目を追加・並び替え・ソート
 // --カラム見出しを追加する
 add_filter("manage_vendors_posts_columns", "tacf_add_custom_column_vendors");
 function tacf_add_custom_column_vendors($columns=[]) {
@@ -143,12 +143,7 @@ function tacf_add_custom_column_vendors($columns=[]) {
 	return $columns;
 }
 // --カラムの内容を表示する
-add_action(
-	"manage_vendors_posts_custom_column",
-	"tacf_display_custom_column_vendors",
-	10,
-	2,
-);
+add_action("manage_vendors_posts_custom_column", "tacf_display_custom_column_vendors", 10, 2,);
 function tacf_display_custom_column_vendors($column_name='', $post_id=0) {
 	foreach (["number"] as $key):
 		if ($column_name == $key) {
@@ -168,12 +163,28 @@ add_action("admin_head", "tacf_custom_column_width_vendors");
 function tacf_custom_column_width_vendors() {
 	echo '<style type="text/css">';
 	echo ".fixed .column-number {width:2em; text-align:right; }";
-	echo ".fixed .column-booth_number {width:4em; text-align:center; }";
+	echo ".fixed .column-booth_number {width:7em; text-align:center; }";
 	echo ".fixed .column-taxonomy-vendor-results {width:5em; }";
 	echo ".fixed .column-taxonomy-vendor-genres {width:8em; }";
 	echo ".fixed .column-taxonomy-vendor-source {width:8em; }";
 	echo ".fixed .column-post_type {width:6em; }";
 	echo "</style>";
+}
+// 「出店番号」ソート機能
+add_filter( 'manage_edit-vendors_sortable_columns', 'tacf_custom_sortable_columns' );
+function tacf_custom_sortable_columns($sort_column=[]) {
+  $sort_column['booth_number'] = 'booth_number';
+	return $sort_column;
+}
+add_filter( 'request', 'tacf_custom_orderby_columns' );
+function tacf_custom_orderby_columns($vars=[]) {
+  if (isset($vars['orderby']) && 'booth_number' == $vars['orderby']) {
+    $vars = array_merge($vars, array(
+      'orderby' => 'meta_value_num',
+      'meta_key' => 'vendor_manage_pass_booth_number',
+    ));
+  }
+  return $vars;
 }
 
 // 【管理画面】固定ページ一覧に項目を追加する
