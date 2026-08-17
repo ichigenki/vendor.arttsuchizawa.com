@@ -5,7 +5,7 @@
 
 // 【ショートコード】ページを指定してURLとＱＲコードを書き出す
 if( !function_exists('shortcode_tacfv_urlqr') ) {
-	function shortcode_tacfv_urlqr($atts) {
+	function shortcode_tacfv_urlqr($atts=array()) {
 		$atts = shortcode_atts( array(
 			'page' => '',
 		), $atts, 'tacfv_urlqr' );
@@ -18,7 +18,7 @@ if( !function_exists('shortcode_tacfv_urlqr') ) {
 				$attr_array[] = $key.'='.$val;
 			endforeach;
 		}
-		$url = 'https://vendor.arttsuchizawa.com/accessible/'.$page.'/?'.implode('&', $attr_array);
+		$url = get_bloginfo('url').'/accessible/'.$page.'/?'.implode('&', $attr_array);
 		ob_start();
 ?>
 <form>

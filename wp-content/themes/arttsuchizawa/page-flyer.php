@@ -72,7 +72,14 @@ if( $the_query->have_posts() ) :
 <caption></caption>
 <thead>
 <tr>
-<th class="number" style="text-align: right; ">No.</th><th class="photo">写真</th><th class="name">店名</th><th class="from">地域</th><th class="genres">ジャンル</th>
+<th class="number" style="text-align: right; ">No.</th>
+<th class="photo">写真</th>
+<th class="name">店名</th>
+<th class="from">地域</th>
+<th class="genres">ジャンル</th>
+<?php if(is_user_logged_in() && current_user_can('administrator')): ?>
+<th class="upload">Upload</th>
+<?php endif; ?>
 </tr>
 </thead>
 <tbody>
@@ -103,7 +110,6 @@ if( $the_query->have_posts() ) :
 		// ジャンルは「飲食」と「食品」のみ表示
 		$shop_genres = '飲食'===$shop_genres || '食品'===$shop_genres? $shop_genres: '';
 
-//var_dump($shop_genres);
 ?>
 <tr>
 <td class="number"><?php echo esc_html($booth_number); ?></td>
@@ -111,6 +117,30 @@ if( $the_query->have_posts() ) :
 <td class="name"><?php echo esc_html($shop_name); ?></td>
 <td class="from"><?php echo esc_html($come_from); ?></td>
 <td class="genres"><?php echo esc_html($shop_genres); ?></td>
+<?php
+		if(is_user_logged_in() && current_user_can('administrator')) {
+			// 管理者がログインしている場合は「アップロード」ボタンを表示
+			$attr_array = array();
+			if( isset($aPageManagementData['file']) && is_array($aPageManagementData['file']) ) {
+				foreach( $aPageManagementData['file'] as $key=>$val ) :
+					$attr_array[] = $key.'='.$val;
+				endforeach;
+			}
+			$upload_url = get_bloginfo('url').'/accessible/file/?'.implode('&', $attr_array);
+?>
+<td class="upload">
+<form action="<?php echo esc_attr($upload_url); ?>" method="post" target="upload">
+<input type="hidden" name="post_id" value="<?php echo esc_attr($post_id); ?>">
+<input type="hidden" name="booth_number" value="<?php echo esc_attr($booth_number); ?>">
+<input type="hidden" name="shop_name" value="<?php echo esc_attr($shop_name); ?>">
+<?php if(empty($photo)): // 写真がない場合のみ表示 ?>
+<button type="submit" style="font-size: 14px; font-weight: normal; border-radius: 4px; padding: 0.5em 1em;">Go!</button>
+<?php endif; ?>
+</form>
+</td>
+<?php
+		}
+?>
 </tr>
 <?php
 	endwhile;

@@ -25,7 +25,7 @@ if( !function_exists('is_tacfv_image_attr') ) {
 
 if( is_tacfv_image_attr($aPageManagementData['file']) ) {
 
-get_header();
+	get_header();
 ?>
 
 <div class="wrap">
@@ -46,8 +46,26 @@ get_header();
 </div><!-- #primary -->
 </div><!-- .wrap -->
 
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	var POST = <?php echo json_encode($_POST); ?>;
+	var email_address = "<?php echo get_bloginfo('admin_email'); ?>";
+	console.log(POST);
+	if(POST && POST.post_id) {
+		var post_id = POST.post_id;
+		var booth_number = POST.booth_number;
+		var shop_name = POST.shop_name;
+		$('#wpforms-565-field_12').val(booth_number);
+		$('#wpforms-565-field_4').val(shop_name);
+		$('#wpforms-565-field_7').val(email_address);
+		$('#wpforms-565-field_7-secondary').val(email_address);
+		$('#wpforms-565-field_1_1').prop('checked', true);
+		}
+});
+</script>
 <?php
-get_footer();
+
+	get_footer();
 
 } else {
 
