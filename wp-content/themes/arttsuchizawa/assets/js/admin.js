@@ -101,7 +101,7 @@ jQuery(document).ready(function($){
 			valIndoorPrice = 0; // 屋内希望ではない場合は0
 		}
 		valCarNumber = + $(inputCarNumber).val() - 1; // 車両台数（の値）から1を引く
-		valCarPrice = valCarAdd * valCarNumber; // 駐車場料金を計算（車両台数を乗算）
+		valCarPrice = (0 > valCarNumber) ? 0 : valCarAdd * valCarNumber; // 駐車場料金を計算（車両台数を乗算）
 		$(inputLocationIndPrice).val(valIndoorPrice); // 屋内追加料金を出力
 		$(inputLocationPrice).val(valAreaPrice); // 出店料を出力
 		$(inputCarPrice).val(valCarPrice); // 駐車場料金を出力

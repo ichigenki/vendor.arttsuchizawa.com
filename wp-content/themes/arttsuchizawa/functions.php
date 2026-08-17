@@ -124,7 +124,7 @@ function tacf_hange_password_protected_page($output=null, $post=null) {
 /* ************************ */
 
 // 【管理画面】出店者一覧に項目を追加・並び替え・ソート
-// --カラム見出しを追加する
+// -- カラム見出しを追加する
 add_filter("manage_vendors_posts_columns", "tacf_add_custom_column_vendors");
 function tacf_add_custom_column_vendors($columns=[]) {
 	$columns = [
@@ -142,7 +142,7 @@ function tacf_add_custom_column_vendors($columns=[]) {
 	];
 	return $columns;
 }
-// --カラムの内容を表示する
+// -- カラムの内容を表示する
 add_action("manage_vendors_posts_custom_column", "tacf_display_custom_column_vendors", 10, 2,);
 function tacf_display_custom_column_vendors($column_name='', $post_id=0) {
 	foreach (["number"] as $key):
@@ -158,7 +158,7 @@ function tacf_display_custom_column_vendors($column_name='', $post_id=0) {
 		}
 	endforeach;
 }
-// --カラム幅を調節
+// -- カラム幅を調節
 add_action("admin_head", "tacf_custom_column_width_vendors");
 function tacf_custom_column_width_vendors() {
 	echo '<style type="text/css">';
@@ -170,7 +170,7 @@ function tacf_custom_column_width_vendors() {
 	echo ".fixed .column-post_type {width:6em; }";
 	echo "</style>";
 }
-// 「出店番号」ソート機能
+// -- 「出店番号」ソート機能
 add_filter( 'manage_edit-vendors_sortable_columns', 'tacf_custom_sortable_columns' );
 function tacf_custom_sortable_columns($sort_column=[]) {
   $sort_column['booth_number'] = 'booth_number';
@@ -188,14 +188,14 @@ function tacf_custom_orderby_columns($vars=[]) {
 }
 
 // 【管理画面】固定ページ一覧に項目を追加する
-// --カラム見出しを追加する
+// -- カラム見出しを追加する
 add_filter("manage_pages_columns", "tacf_add_custom_column_pages");
 function tacf_add_custom_column_pages($columns=[]) {
 	$columns["date_publish"] = "公開日";
 	$columns["date_private"] = "削除日";
 	return $columns;
 }
-// --カラムの内容を表示する
+// -- カラムの内容を表示する
 add_action(
 	"manage_pages_custom_column",
 	"tacf_display_custom_column_pages",
@@ -211,7 +211,7 @@ function tacf_display_custom_column_pages($column_name='', $post_id=0) {
 		}
 	endforeach;
 }
-// --カラム幅を調節
+// -- カラム幅を調節
 add_action("admin_head", "tacf_custom_column_width_pages");
 function tacf_custom_column_width_pages() {
 	echo '<style type="text/css">';
@@ -252,7 +252,7 @@ if ($oPagelinkPost) {
 /* 【関数】                  */
 /* ************************ */
 
-// 【関数】cronイベントにスケジュールされる動作を記述
+// 【関数】cronイベントにスケジュールされる動作（外部公開ページの「公開／非公開」設定）を記述
 if (!function_exists("tacfv_function_update_accessible_post")) {
 	function tacfv_function_update_accessible_post() {
 		global $aExternalPages;
