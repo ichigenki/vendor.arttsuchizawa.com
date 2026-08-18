@@ -240,11 +240,7 @@ if ($oPagelinkPost) {
 	foreach ($aExternalPages as $key):
 		$aPageManagementData[$key] = [];
 		foreach ($aPageUrlAttr as $val):
-			$aPageManagementData[$key][$val] = get_post_meta(
-				$post_id,
-				"tacfv_externalpage_" . $key . "__" . $val,
-				true,
-			);
+			$aPageManagementData[$key][$val] = get_post_meta($post_id, "tacfv_externalpage_" . $key . "__" . $val, true,);
 		endforeach;
 	endforeach;
 }
@@ -262,16 +258,8 @@ if (!function_exists("tacfv_function_update_accessible_post")) {
 			$post_obj = get_page_by_path("accessible/" . $slug);
 			$post_id = $post_obj ? $post_obj->ID : 0;
 			if ($post_id) {
-				$date_publish = get_post_meta(
-					$post_id,
-					"manage_visibility_date_publish",
-					true,
-				);
-				$date_private = get_post_meta(
-					$post_id,
-					"manage_visibility_date_private",
-					true,
-				);
+				$date_publish = get_post_meta($post_id,	"manage_visibility_date_publish", true,);
+				$date_private = get_post_meta($post_id, "manage_visibility_date_private", true,);
 				if (!empty($date_publish) && $today >= $date_publish) {
 					wp_update_post(["ID" => $post_id, "post_status" => "publish"]);
 				}

@@ -1,5 +1,30 @@
 <?php
 // 出店者情報管理リストの設定情報
+$aItemPriceData = array(
+	'location' => array(
+		'Aエリア 路面' => 13000,
+		'Aエリア 路面以外' => 12000,
+		'Bエリア' => 11000,
+		'Cエリア' => 9,000,
+		'美術館エリア' => 11000,
+		'中央エリア' => 9000,
+		'新斎ホール 「屋内」' => 11000,
+		'支所前フードコート' => 20000,
+		'駅前フードコート' => 18000,
+		'キッチンカー' => 15000,
+		'その他' => null
+	),
+	'location_indoor' => array(
+		'屋内追加料金' => 2000,
+	),
+	'car_price' => array(
+		'駐車場追加料金' => 1000,
+	),
+);
+$aLocationNameData = array();
+foreach( $aItemPriceData['location'] as $key=>$val ) :
+	$aLocationNameData[] = $key;
+endforeach;
 $aPrefixData = array(
 	'meta' => array(
 		'entry' => 'vendor_entry_',
@@ -41,7 +66,7 @@ $aVendorsData = array(
 		'label' => '出店エリア',
 		'db' => 'meta',
 		'key' => 'vendor_manage_pass_',
-		'option' => array('Aエリア 路面','Aエリア 路面以外','Bエリア','Cエリア','美術館エリア','中央エリア','新斎ホール 「屋内」','支所前フードコート','駅前フードコート','キッチンカー','その他'),
+		'option' => $aLocationNameData,
 		'default' => 1,
 		'sort' => 1,
 		'filter' => 1,
@@ -409,27 +434,6 @@ $aVendorsData = array(
 		'db' => 'date',
 		'type' => 'date',
 		'default' => 1,
-	),
-);
-$aItemPriceData = array(
-	'location' => array(
-		'Aエリア 路面' => 13000,
-		'Aエリア 路面以外' => 12000,
-		'Bエリア' => 11000,
-		'Cエリア' => 9,000,
-		'美術館エリア' => 11000,
-		'中央エリア' => 9000,
-		'新斎ホール 「屋内」' => 11000,
-		'支所前フードコート' => 20000,
-		'駅前フードコート' => 18000,
-		'キッチンカー' => 15000,
-		'その他' => null
-	),
-	'location_indoor' => array(
-		'屋内追加料金' => 2000,
-	),
-	'car_price' => array(
-		'駐車場追加料金' => 1000,
 	),
 );
 
