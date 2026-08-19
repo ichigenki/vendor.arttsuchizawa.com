@@ -2,17 +2,18 @@
 /**
  * The front page template file
  */
+global $post;
 
-if( !post_password_required($post->ID) ) {
+// if( !post_password_required($post->ID) ) {
 
-	get_header();
-?>
+// 	get_header();
+// ?>
 
-<?php
-	get_footer();
+// <?php
+// 	get_footer();
 
-} else {
+// } else {
 
-	get_template_part('page', 'accessible');
+	// get_template_part('page', 'accessible');
 
-}
+// }

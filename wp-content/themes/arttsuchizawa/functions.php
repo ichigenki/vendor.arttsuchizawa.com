@@ -3,26 +3,14 @@
 add_action("wp_enqueue_scripts", "arttsuchizawa_thm_scripts", 10);
 if (!function_exists("arttsuchizawa_thm_scripts")) {
 	function arttsuchizawa_thm_scripts() {
-		wp_enqueue_style(
-			"parent-style",
-			get_template_directory_uri() . "/style.css",
-			[],
-		);
-		wp_enqueue_style(
-			"arttsuchizawa-custom",
-			get_stylesheet_directory_uri() . "/assets/css/custom.css",
-			["twentyseventeen-block-style", "twentyseventeen-style"],
-		);
+		wp_enqueue_style("parent-style", get_template_directory_uri() . "/style.css", []);
+		wp_enqueue_style("arttsuchizawa-custom", get_stylesheet_directory_uri() . "/assets/css/custom.css", ["twentyseventeen-block-style", "twentyseventeen-style"]);
 		if (is_front_page()) {
 			//wp_enqueue_style( 'custom-front', get_stylesheet_directory_uri().'/assets/css/custom-front.css', array('arttsuchizawa-custom') );
 		} 
 		elseif (is_page(["shoplist"])) {
 			// 「出店者リスト」ページ（ワイドレイアウト）用スタイル
-			wp_enqueue_style(
-				"arttsuchizawa-page-wide",
-				get_stylesheet_directory_uri() . "/assets/css/page-wide.css",
-				["arttsuchizawa-custom"],
-			);
+			wp_enqueue_style("arttsuchizawa-page-wide", get_stylesheet_directory_uri() . "/assets/css/page-wide.css", ["arttsuchizawa-custom"]);
 		}
 		// elseif( is_page('receipt') ) {
 		// 	// 「領収証」ページ用スタイル
@@ -30,19 +18,9 @@ if (!function_exists("arttsuchizawa_thm_scripts")) {
 		// }
 		elseif (is_page(["entry", "file", "flyer"])) {
 			// 「出店申込み」ページ用スタイル
-			wp_enqueue_style(
-				"arttsuchizawa-page-external",
-				get_stylesheet_directory_uri() . "/assets/css/page-external.css",
-				["arttsuchizawa-custom"],
-			);
+			wp_enqueue_style("arttsuchizawa-page-external", get_stylesheet_directory_uri() . "/assets/css/page-external.css", ["arttsuchizawa-custom"]);
 		}
-		wp_enqueue_script(
-			"arttsuchizawa-jquery-custom",
-			get_stylesheet_directory_uri() . "/assets/js/script.js",
-			[],
-			"1.0.0",
-			true,
-		);
+		wp_enqueue_script("arttsuchizawa-jquery-custom", get_stylesheet_directory_uri() . "/assets/js/script.js", [], "1.0.0", true);
 	}
 }
 // add_action('wp_enqueue_scripts', function() {
@@ -50,18 +28,8 @@ if (!function_exists("arttsuchizawa_thm_scripts")) {
 // });
 // 編集画面側のCSSの読み込み.
 add_action("admin_enqueue_scripts", function () {
-	wp_enqueue_style(
-		"arttsuchizawa-editor-custom",
-		get_stylesheet_directory_uri() . "/assets/css/editor.css",
-		["ame-helper-style", "to.css"],
-	);
-	wp_enqueue_script(
-		"arttsuchizawa-jquery-custom",
-		get_stylesheet_directory_uri() . "/assets/js/admin.js",
-		[],
-		"1.0.0",
-		true,
-	);
+	wp_enqueue_style("arttsuchizawa-editor-custom", get_stylesheet_directory_uri() . "/assets/css/editor.css", ["ame-helper-style", "to.css"]);
+	wp_enqueue_script("arttsuchizawa-jquery-custom", get_stylesheet_directory_uri() . "/assets/js/admin.js", [], "1.0.0", true);
 });
 
 // BEGIN CUSTOM FUNCTIONS
@@ -122,6 +90,19 @@ function tacf_hange_password_protected_page($output=null, $post=null) {
 
 /* 【管理画面】               */
 /* ************************ */
+
+// 【管理画面】headタグ内に追加のHTMLを出力する
+add_action('admin_head', 'tacf_add_admin_head_tags');
+function tacf_add_admin_head_tags() {
+	global $aAreaPriceData;
+	global $aIndoorPriceData;
+	global $aParkingPriceData;
+  echo '<script type="text/javascript">';
+	echo 'const dataAreas = '.json_encode($aAreaPriceData, JSON_UNESCAPED_UNICODE).';';
+	echo 'const dataIndoor = '.json_encode($aIndoorPriceData, JSON_UNESCAPED_UNICODE).';';
+	echo 'const dataParking = '.json_encode($aParkingPriceData, JSON_UNESCAPED_UNICODE).';';
+	echo '</script>'.PHP_EOL;
+}
 
 // 【管理画面】出店者一覧に項目を追加・並び替え・ソート
 // -- カラム見出しを追加する
