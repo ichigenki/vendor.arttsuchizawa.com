@@ -1,29 +1,10 @@
 <?php
+global $aAreaPriceData;
+
 // 出店者情報管理リストの設定情報
-$aItemPriceData = array(
-	'location' => array(
-		'Aエリア 路面' => 13000,
-		'Aエリア 路面以外' => 12000,
-		'Bエリア' => 11000,
-		'Cエリア' => 9,000,
-		'美術館エリア' => 11000,
-		'中央エリア' => 9000,
-		'新斎ホール 「屋内」' => 11000,
-		'支所前フードコート' => 20000,
-		'駅前フードコート' => 18000,
-		'キッチンカー' => 15000,
-		'その他' => null
-	),
-	'location_indoor' => array(
-		'屋内追加料金' => 2000,
-	),
-	'car_price' => array(
-		'駐車場追加料金' => 1000,
-	),
-);
-$aLocationNameData = array();
-foreach( $aItemPriceData['location'] as $key=>$val ) :
-	$aLocationNameData[] = $key;
+$aAreaNameData = array();
+foreach( $aAreaPriceData as $key=>$val ) :
+	$aAreaNameData[] = $key;
 endforeach;
 $aPrefixData = array(
 	'meta' => array(
@@ -42,7 +23,7 @@ $aVendorsData = array(
 	'number' => array(
 		'label' => '受付',
 		'db' => 'meta',
-		'key' => 'vendor_manage_',
+		'key' => $aPrefixData['meta']['manage'],
 		'type' => 'number',
 		'default' => 1,
 		'sort' => 1,
@@ -57,7 +38,7 @@ $aVendorsData = array(
 	'booth_number' => array(
 		'label' => '出店No.',
 		'db' => 'meta',
-		'key' => 'vendor_manage_pass_',
+		'key' => $aPrefixData['meta']['pass'],
 		'type' => 'number',
 		'default' => 1,
 		'sort' => 1,
@@ -65,8 +46,8 @@ $aVendorsData = array(
 	'location' => array(
 		'label' => '出店エリア',
 		'db' => 'meta',
-		'key' => 'vendor_manage_pass_',
-		'option' => $aLocationNameData,
+		'key' => $aPrefixData['meta']['pass'],
+		'option' => $aAreaNameData,
 		'default' => 1,
 		'sort' => 1,
 		'filter' => 1,
@@ -82,7 +63,7 @@ $aVendorsData = array(
 	'price' => array(
 		'label' => '出店料',
 		'db' => 'meta',
-		'key' => 'vendor_manage_pass_',
+		'key' => $aPrefixData['meta']['pass'],
 		'type' => 'price',
 		'default' => 1,
 		'sort' => 1,
@@ -90,7 +71,7 @@ $aVendorsData = array(
 	'payment' => array(
 		'label' => '入金',
 		'db' => 'meta',
-		'key' => 'vendor_manage_pass_',
+		'key' => $aPrefixData['meta']['pass'],
 		'type' => 'center',
 		'option' => array('未','済'),
 		'default' => 1,
@@ -101,7 +82,7 @@ $aVendorsData = array(
 		'label' => '領収証',
 		'db' => 'meta',
 		'option' => array('必要','不要'),
-		'key' => 'vendor_manage_pass_',
+		'key' => $aPrefixData['meta']['pass'],
 		'default' => 0,
 		'sort' => 1,
 		'filter' => 1,
@@ -115,7 +96,7 @@ $aVendorsData = array(
 	'comefrom' => array(
 		'label' => '地域',
 		'db' => 'meta',
-		'key' => 'vendor_manage_pass_',
+		'key' => $aPrefixData['meta']['pass'],
 		'default' => 0,
 		'sort' => 1,
 	),

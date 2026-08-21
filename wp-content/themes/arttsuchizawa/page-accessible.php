@@ -7,8 +7,8 @@ if( is_404() ) {
 	$html_title = '404 Error';
 	$error_header = '404 Not Found';
 	$error_body = 'The requested URL was not found on this server.';
-} elseif( is_front_page() ) {
-	$hidden_button = '<div id="hidden-button" style="position:fixed;bottom:0;left:0;"><a href="/pagelink/" style="display:inline-block;width:40px;height:40px;cursor:default;"></a></div>'.PHP_EOL;
+// } elseif( is_front_page() ) {
+// 	$hidden_button = '<div id="hidden-button" style="position:fixed;bottom:0;left:0;"><a href="/pagelink/" style="display:inline-block;width:40px;height:40px;cursor:default;"></a></div>'.PHP_EOL;
 }
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>

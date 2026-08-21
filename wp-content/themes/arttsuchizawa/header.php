@@ -2,6 +2,7 @@
 /**
  * The header for our theme
  */
+global $aAreaPriceData;
 
 $is_front  = ! is_paged() && ( is_front_page() || ( is_home() && ( (int) get_option( 'page_for_posts' ) !== get_queried_object_id() ) ) );
 $site_name = get_bloginfo( 'name', 'display' );

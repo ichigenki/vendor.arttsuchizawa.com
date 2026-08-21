@@ -2,26 +2,26 @@
 
 // 【グローバル変数】エリア名と料金の配列
 // ※ WordPressプラグイン＜ACF：出店管理（事務局）＞の「出店エリア」フィールドの選択肢とこの配列キーの文言、それに＜vendorlist-parameters.php＞の値（'location'：２箇所）を一致させる必要がある
-let dataAreas = {
-	"Aエリア 路面（13,000円）": 13000,
-	"Aエリア 路面以外（12,000円）": 12000,
-	"Bエリア（11,000円）": 11000,
-	"Cエリア（9,000円）": 9000,
-	"美術館エリア（11,000円）": 11000,
-	"中央エリア（9,000円）": 9000,
-	"新斎ホール 「屋内」（11,000円）": 11000,
-	"支所前フードコート（20,000円）": 20000,
-	"駅前フードコート（18,000円）": 18000,
-	"キッチンカー（15,000円）": 15000,
-	"その他": 0
-};
+// let dataAreas = {
+// 	"Aエリア 路面（13,000円）": 13000,
+// 	"Aエリア 路面以外（12,000円）": 12000,
+// 	"Bエリア（11,000円）": 11000,
+// 	"Cエリア（9,000円）": 9000,
+// 	"美術館エリア（11,000円）": 11000,
+// 	"中央エリア（9,000円）": 9000,
+// 	"新斎ホール 「屋内」（11,000円）": 11000,
+// 	"支所前フードコート（20,000円）": 20000,
+// 	"駅前フードコート（18,000円）": 18000,
+// 	"キッチンカー（15,000円）": 15000,
+// 	"その他": 0
+// };
 
 // 【グローバル変数】追加料金（と名称）の配列
 // ※ WordPressプラグイン＜ACF：出店管理（事務局）＞の「屋内追加料金」「駐車場追加料金」フィールドのステップサイズ、それに＜vendorlist-parameters.php＞の値（'location_indoor'と'car_price'）を一致させる必要がある
-let dataAdds = {
-	"屋内追加料金":2000,
-	"駐車場追加料金":1000
-};
+// let dataAdds = {
+// 	"屋内追加料金":2000,
+// 	"駐車場追加料金":1000
+// };
 
 jQuery(document).ready(function($){
 
@@ -87,8 +87,8 @@ jQuery(document).ready(function($){
 	let inputCarPrice = 'div.acf-field-number[data-name="car_price"] input[type="number"]';
 	let inputPriceTotal = 'div.acf-field-number[data-name="price"] input[type="number"]';
 	let valArea='', valAreaUnits=1, valAreaPrice=0, valIndoorPrice=0, valCarNumber=1, valCarPrice=0;
-	let valAreaAdd = dataAdds["屋内追加料金"];
-	let valCarAdd = dataAdds["駐車場追加料金"];
+	let valAreaAdd = dataIndoor["price"];
+	let valCarAdd = dataParking["price"];
 	// ※ 出店料関連の金額を出力する関数
 	function printVendorFees() {
 		valArea = $(inputLocationArea).val(); // 出店場所の値
@@ -107,7 +107,6 @@ jQuery(document).ready(function($){
 		$(inputLocationPrice).val(valAreaPrice); // 出店料を出力
 		$(inputCarPrice).val(valCarPrice); // 駐車場料金を出力
 		$(inputPriceTotal).val(valAreaPrice + valIndoorPrice + valCarPrice); // 合計を出力
-//console.log('propAreaIndoor: ',propAreaIndoor);
 	}
 	printVendorFees(); // ページを開いたときに計算結果を表示する
 	// ※ それぞれの項目が入力・選択されたときに計算結果を表示する
@@ -137,4 +136,15 @@ jQuery(document).ready(function($){
 });
 
 jQuery(document).ready(function($){
+	// 【Advanced Custom Fields】「出店管理（事務局） ⇒ 当選店データ ⇒ 出店エリア」の「選択肢」欄の値を書き出す
+	let lines = $.map(dataAreas, function(value, key) {
+		if (value !== "") {
+			// 数値をカンマ区切りに変換
+			let formatted = Number(value).toLocaleString();
+			return key + "（" + formatted + "円）";
+		} else {
+			return key;
+		}
+	});
+	$('body.acf-admin-single-field-group textarea#acf_fields-474-choices[name="acf_fields[474][choices]"]').val(lines.join("\n"));
 });

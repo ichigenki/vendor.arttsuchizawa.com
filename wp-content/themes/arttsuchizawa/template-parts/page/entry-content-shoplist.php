@@ -6,7 +6,7 @@
 global $aVendorsData;
 global $aPrefixData;
 global $aPrefixData;
-global $aItemPriceData;
+global $aAreaPriceData;
 
 $submit_button = '<button type="submit" name="set-config" id="set-config" class="submit" value="update-shoplist">出店者リストを更新</button>';
 
@@ -218,7 +218,7 @@ if( !post_password_required() ) {
 				$option = !empty($arr['option'])? $arr['option']: null;
 				if( is_array($option) ) {
 					foreach( $option as $item ) :
-						$item_suffix = 'location'===$key&&!empty($aItemPriceData['location'][$item])? '（'.number_format($aItemPriceData['location'][$item]).'円）': '';
+						$item_suffix = 'location'===$key&&!empty($aAreaPriceData[$item])? '（'.number_format($aAreaPriceData[$item]).'円）': '';
 						$value = $arr['db'].'.'.$key.'.'.$item.$item_suffix.(!empty($arr['key'])? '.'.$arr['key']: '');
 						echo '<label for="filter-items-'.$key.'-'.$i.'"><input';
 						echo ' type="radio"';
