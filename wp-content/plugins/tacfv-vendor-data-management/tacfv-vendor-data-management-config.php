@@ -168,16 +168,26 @@ input.area-name {width: 300px; }
 </thead>
 <tbody>
 <?php
-		$i = 0;
-		foreach ($aOptionData['location'] as $key=>$val) :
-			$i++;
+		if (!empty($aOptionData['location'])) :
+			$i = 0;
+			foreach ($aOptionData['location'] as $key=>$val) :
+				$i++;
 ?>
 <tr>
 <!-- <td><?php echo $key; ?></td> -->
 <td class="input-td"><input type="text" name="area<?php echo $i; ?>-label" id="area<?php echo $i; ?>-label" class="text area-name"  value="<?PHP echo $key; ?>" /></td><td class="input-td"><input type="number" name="area<?php echo $i; ?>-price" id="area<?php echo $i; ?>-price" class="text number price" step="1000" min="0" max="100000" value="<?PHP echo $val; ?>" /></td>
 </tr>
 <?php
-		endforeach;
+			endforeach;
+		else :
+			for ($i=1; $i<=11; $i++) :
+?>
+<tr>
+<td class="input-td"><input type="text" name="area<?php echo $i; ?>-label" id="area<?php echo $i; ?>-label" class="text area-name"  value="" /></td><td class="input-td"><input type="number" name="area<?php echo $i; ?>-price" id="area<?php echo $i; ?>-price" class="text number price" step="1000" min="0" max="100000" value="" /></td>
+</tr>
+<?php
+							endfor;
+		endif;
 		if (isset($_POST['submit-add-item'])) :
 			// 追加エリアの入力欄を表示する
 ?>
@@ -211,10 +221,10 @@ input.area-name {width: 300px; }
 </thead>
 <tbody>
 <tr>
-<td><input type="text" name="indoor-label" id="indoor-label" class="text area-name"  value="<?PHP echo $aOptionData['indoor']['label']; ?>" /></td><td><input type="number" name="indoor-price" id="indoor-price" class="text number price" step="1000" min="0" max="100000" value="<?PHP echo $aOptionData['indoor']['price']; ?>" /></td>
+<td><input type="text" name="indoor-label" id="indoor-label" class="text area-name"  value="<?PHP echo !empty($aOptionData['indoor']['label']) ? $aOptionData['indoor']['label'] : ''; ?>" /></td><td><input type="number" name="indoor-price" id="indoor-price" class="text number price" step="1000" min="0" max="100000" value="<?PHP echo !empty($aOptionData['indoor']['price']) ? $aOptionData['indoor']['price'] : ''; ?>" /></td>
 </tr>
 <tr>
-<td><input type="text" name="parking-label" id="parking-label" class="text area-name"  value="<?PHP echo $aOptionData['parking']['label']; ?>" /></td><td><input type="number" name="parking-price" id="parking-price" class="text number price" step="1000" min="0" max="100000" value="<?PHP echo $aOptionData['parking']['price']; ?>" /></td>
+<td><input type="text" name="parking-label" id="parking-label" class="text area-name"  value="<?PHP echo !empty($aOptionData['parking']['label']) ? $aOptionData['parking']['label'] : ''; ?>" /></td><td><input type="number" name="parking-price" id="parking-price" class="text number price" step="1000" min="0" max="100000" value="<?PHP echo !empty($aOptionData['parking']['price']) ? $aOptionData['parking']['price'] : ''; ?>" /></td>
 </tr>
 </tbody>
 <tfoot>
