@@ -15,7 +15,7 @@ if( is_404() ) {
 <head>
 <title><?php echo $html_title; ?></title>
 <meta name='robots' content='noindex, nofollow' />
-<style>html, body, table {width:100%;height:100%;margin:0;padding:0;}</style>
+<style>html, body, table {background-color:white;width:100%;height:100%;margin:0;padding:0;}</style>
 </head>
 <body>
 <table><tr><td style="text-align:center;vertical-align:middle;"><h2 style="font-weight:bold;"><?php echo $error_header; ?></h2><p><?php echo $error_body; ?></p></td></tr></table>

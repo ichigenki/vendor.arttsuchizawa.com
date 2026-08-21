@@ -44,11 +44,13 @@ if( post_password_required() ) {
 
 <div class="site-branding-text">
 <?php if( $site_name && is_front_page() ) : ?>
-<h1 class="site-title"><a href="<?php echo esc_url(get_permalink(3)); ?>"><?php echo $site_name; ?></a></h1>
+<!-- <h1 class="site-title"><a href="<?php echo esc_url(get_permalink(3)); ?>"><?php echo $site_name; ?></a></h1> -->
+<h1 class="site-title"><?php echo $site_name; ?></h1>
 <?php elseif( $site_name && $post && $accessible_id === $post->post_parent ) : ?>
 <p class="site-title"><?php echo $site_name; ?></p>
 <?php elseif( $site_name ) : ?>
-<p class="site-title"><a href="<?php echo esc_url(home_url( '/' )); ?>" rel="home" <?php echo $is_front ? 'aria-current="page"' : ''; ?>><?php echo $site_name; ?></a></p>
+<!-- <p class="site-title"><a href="<?php echo esc_url(home_url( '/' )); ?>" rel="home" <?php echo $is_front ? 'aria-current="page"' : ''; ?>><?php echo $site_name; ?></a></p> -->
+<p class="site-title"><?php echo $site_name; ?></p>
 <?php endif; // ( $site_name && is_front_page() ) ?>
 </div><!-- .site-branding-text -->
 </div><!-- .wrap -->
